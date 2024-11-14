@@ -1,6 +1,6 @@
 from openai import OpenAI
-client = OpenAI(api_key="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")
-
+import os
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 completion = client.chat.completions.create(
     model="gpt-4o-mini",
     messages=[
@@ -13,5 +13,3 @@ completion = client.chat.completions.create(
 )
 
 print(completion.choices[0].message)
-
-
